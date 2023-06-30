@@ -1,5 +1,6 @@
 
 using RocketProject.Inputs;
+using RocketProject.Movments;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace RpcketProject.PlayerControllers
 {
     public class PlayerController : MonoBehaviour
     {
+        Mover _mover;
 
         [SerializeField] float force;
         
@@ -23,6 +25,9 @@ namespace RpcketProject.PlayerControllers
 
             _rigidbody = GetComponent<Rigidbody>();
             _Input = new DefaultInput();
+
+            _mover = new Mover(GetComponent<Rigidbody>());
+
             
         }
 
@@ -47,8 +52,9 @@ namespace RpcketProject.PlayerControllers
         {
             if (_forceUp)
             {
-                _rigidbody.AddForce(Vector3.up * Time.deltaTime * force);
+                //_rigidbody.AddForce(Vector3.up * Time.deltaTime * force);
 
+                _mover.FixedTick();
             }
             //_rigidbody.AddForce(Vector3.up * Time.deltaTime * 100);
         }

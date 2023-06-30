@@ -1250,11 +1250,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AtomRocket
       objectReference: {fileID: 0}
-    - target: {fileID: 3910459071942406604, guid: fc7542434461d4e409a22736f36392c0,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 4823451503941309853, guid: fc7542434461d4e409a22736f36392c0,
         type: 3}
       propertyPath: m_RootOrder
@@ -1309,11 +1304,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6830250420312780406, guid: fc7542434461d4e409a22736f36392c0,
-        type: 3}
-      propertyPath: force
-      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc7542434461d4e409a22736f36392c0, type: 3}

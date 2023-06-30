@@ -16,6 +16,7 @@ namespace RocketProject.Inputs
         
 
         public bool IsForceUp { get; private set; }
+        public float LeftRight { get; private set; }
 
 
         public DefaultInput()
@@ -24,10 +25,14 @@ namespace RocketProject.Inputs
 
 
             _Inputs.Rocket.ForceUp.performed += context => IsForceUp = context.ReadValueAsButton();
+            _Inputs.Rocket.LefRight.performed += context => LeftRight = context.ReadValue<float>(); 
 
             _Inputs.Enable();
         }
 
-        
+        private void LefRight_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

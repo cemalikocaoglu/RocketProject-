@@ -25,6 +25,7 @@ namespace RpcketProject.PlayerControllers
         float _leftRight;
 
         Rotator _rotator;
+        Fuel _fuel;
 
         public  float TurnSpeed => _turnSpeed;
         public float Force => _force;
@@ -32,7 +33,7 @@ namespace RpcketProject.PlayerControllers
         
 
 
-        bool _forceUp;        
+        bool _canForceUp;        
         private void Awake()
         {
 
@@ -42,6 +43,9 @@ namespace RpcketProject.PlayerControllers
             _mover = new Mover(this);
 
             _rotator = new Rotator(this);
+
+            _fuel = GetComponent<Fuel>();
+
             
         }
 
@@ -49,13 +53,14 @@ namespace RpcketProject.PlayerControllers
         {
             Debug.Log(_Input.LeftRight);
             
-            if(_Input.IsForceUp)
+            if(_Input.IsForceUp && !_fuel.IsEmpty)
             {
-                _forceUp = true;
+                _canForceUp = true;
             }
             else
             {
-                _forceUp = false;
+                _canForceUp = false;
+                _fuel.FuelIncrease(0.1f);
             }
 
             _leftRight = _Input.LeftRight;
@@ -65,11 +70,12 @@ namespace RpcketProject.PlayerControllers
 
         private void FixedUpdate()
         {
-            if (_forceUp)
+            if (_canForceUp)
             {
                 //_rigidbody.AddForce(Vector3.up * Time.deltaTime * force);
 
                 _mover.FixedTick();
+                _fuel.fuelDecrase(0.2f);
             }
 
 

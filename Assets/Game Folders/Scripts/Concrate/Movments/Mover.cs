@@ -1,8 +1,11 @@
 using JetBrains.Rider.Unity.Editor;
-using RpcketProject.PlayerControllers;
+
+using RocketProject.Controllers;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace RocketProject.Movments
 {
@@ -10,6 +13,7 @@ namespace RocketProject.Movments
     {
         PlayerController _playerController;
         Rigidbody _rigidbody;
+        private PlayerController playerController;
 
         public Mover(PlayerController playerController)
         {
@@ -17,6 +21,9 @@ namespace RocketProject.Movments
             _rigidbody = playerController.GetComponent<Rigidbody>();
             
         }
+
+        
+       
 
         public void FixedTick()
         {

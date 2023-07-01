@@ -1,12 +1,14 @@
 
-using RocketProject.Inputs;
-using RocketProject.Movments;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace RpcketProject.PlayerControllers
+using RocketProject.Inputs;
+using RocketProject.Movments;
+
+namespace RocketProject.Controllers
 {
     public class PlayerController : MonoBehaviour
     {

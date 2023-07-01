@@ -1,3 +1,4 @@
+using RocketProject.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace RocketProject.Controllers
 
             if (player !=null)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GameManager.Instance.GameOver();
             }
 
         }

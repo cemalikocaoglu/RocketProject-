@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 
 using RocketProject.Inputs;
 using RocketProject.Movments;
+using RocketProject.Managers;
 
 namespace RocketProject.Controllers
 {
@@ -32,8 +33,8 @@ namespace RocketProject.Controllers
         public  float TurnSpeed => _turnSpeed;
         public float Force => _force;
 
-        
 
+        bool _canMove;
 
         bool _canForceUp;        
         private void Awake()
@@ -51,9 +52,32 @@ namespace RocketProject.Controllers
             
         }
 
+        private void Start()
+        {
+            _canMove = true;
+        }
+
+
+        private void OnEnable()
+        {
+            GameManager.Instance.OnGameOver += HandleOnEventTrigger; 
+        }
+
+
+        private void OnDisable()
+        {
+            GameManager.Instance.OnGameOver -= HandleOnEventTrigger;
+            
+        }
+
+
+
+
         private void Update()
         {
-            Debug.Log(_Input.LeftRight);
+
+            if (!_canMove) return;
+
             
             if(_Input.IsForceUp && !_fuel.IsEmpty)
             {
@@ -84,5 +108,24 @@ namespace RocketProject.Controllers
             _rotator.FixedTick(_leftRight);
             //_rigidbody.AddForce(Vector3.up * Time.deltaTime * 100);
         }
+
+
+
+
+        private void HandleOnEventTrigger()
+        {
+
+            _canMove = false;
+            _canForceUp = false;
+            _leftRight = 0f;
+            _fuel.FuelIncrease(0f);
+
+
+
+
+        }
+
+
+
     }
 }

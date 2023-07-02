@@ -33,6 +33,8 @@ namespace RocketProject.Controllers
         public  float TurnSpeed => _turnSpeed;
         public float Force => _force;
 
+        public bool canMove => _canMove;
+
 
         bool _canMove;
 

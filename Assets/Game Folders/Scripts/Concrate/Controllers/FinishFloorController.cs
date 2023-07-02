@@ -18,7 +18,7 @@ namespace RocketProject.Controllers
         private void OnCollisionEnter(Collision collision)
         {
             PlayerController player = collision.collider.GetComponent<PlayerController>();
-            if (player == null  && !player.canMove)  return; 
+            if (player == null && !player.canMove )  return; 
 
 
             if(collision.GetContact(0).normal.y ==-1)
@@ -31,7 +31,9 @@ namespace RocketProject.Controllers
             }
             else
             {
-                GameManager.Instance.GameOver();
+                
+                    GameManager.Instance.GameOver();
+                
             }
         }
 

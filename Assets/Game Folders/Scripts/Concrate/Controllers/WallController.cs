@@ -1,4 +1,5 @@
 using RocketProject.Managers;
+using RocketProject.UIs;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ namespace RocketProject.Controllers
 
     public class WallController : MonoBehaviour
     {
+       
+
+        
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -18,6 +22,8 @@ namespace RocketProject.Controllers
             if (player !=null)
             {
                 GameManager.Instance.GameOver();
+               
+
             }
 
         }
